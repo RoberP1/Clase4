@@ -3,19 +3,23 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-    public int sides;
+    [SerializeField] private int sides;
 
-    public int totalBonus;
+    [SerializeField] private int totalBonus;
 
-    public Text rollText;
-    
-    public Text totalText;
+    [SerializeField] private Text rollText;
+
+    [SerializeField] private Text totalText;
     public void Roll()
     {
         int result = Random.Range(1, sides + 1);
+        
         rollText.text = result.ToString();
+        
         result += totalBonus;
+        
         totalText.text = "Total = " + result.ToString();
+        
         Debug.Log(result);
     }
 

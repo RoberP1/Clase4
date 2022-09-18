@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWeapon: Sword
   actualWeapon: 
+  weaponName: {fileID: 714289556}
   weapons: []
 --- !u!4 &288781404
 Transform:
@@ -825,7 +826,6 @@ GameObject:
   - component: {fileID: 1472199811}
   - component: {fileID: 1472199810}
   - component: {fileID: 1472199809}
-  - component: {fileID: 1472199812}
   m_Layer: 5
   m_Name: Select
   m_TagString: Untagged
@@ -897,8 +897,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472199812}
-        m_TargetAssemblyTypeName: WeaponSelector, Assembly-CSharp
+      - m_Target: {fileID: 288781403}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: SelectWeapon
         m_Mode: 1
         m_Arguments:
@@ -947,20 +947,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472199807}
   m_CullTransparentMesh: 1
---- !u!114 &1472199812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472199807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6d462d333d7d944b3cccfdb884cfb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponManager: {fileID: 288781403}
-  weaponName: {fileID: 714289556}
 --- !u!1 &1848758540
 GameObject:
   m_ObjectHideFlags: 0

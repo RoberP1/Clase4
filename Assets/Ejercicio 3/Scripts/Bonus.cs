@@ -7,11 +7,11 @@ public class Bonus : MonoBehaviour
 {
     public static Action<int> OnBonusChanged;
 
-    public int amount;
+    [SerializeField] private int amount;
 
-    public Text amountText;
+    [SerializeField] private Text amountText;
 
-    public List<Modifiers> modifiers;
+    [SerializeField] private List<Modifiers> modifiers;
 
     private void Start()
     {
@@ -28,11 +28,11 @@ public class Bonus : MonoBehaviour
         foreach(Modifiers modifier in modifiers)
         {
             if (modifier.active)
-            {
                 amount += modifier.amount;
-            }
         }
+        
         OnBonusChanged?.Invoke(amount);
+        
         UpdateUI();
     }
 }

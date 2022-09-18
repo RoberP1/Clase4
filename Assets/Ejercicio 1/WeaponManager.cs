@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 public class WeaponManager : MonoBehaviour
 {
     public string defaultWeapon;
 
     public string actualWeapon;
+
+    public InputField weaponName;
 
     public List<GameObject> weapons;
     private void Awake()
@@ -41,5 +44,9 @@ public class WeaponManager : MonoBehaviour
             weapon?.SetActive(true);
             actualWeapon = defaultWeapon;
         }
+    }
+    public void SelectWeapon()
+    {
+        EquipWeapon(weaponName.text);
     }
 }
