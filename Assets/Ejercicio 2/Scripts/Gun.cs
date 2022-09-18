@@ -11,47 +11,48 @@ public class Gun : MonoBehaviour
     
     public int currentBullets;
 
+    private bool canShoot;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         UpdateAmmoUI();
+        canShoot = true;
     }
 
     public void Shoot()
     {
-        if (currentBullets > 0)
+        if (currentBullets > 0 && canShoot)
         {
             animator.SetTrigger("Shoot");
-            animator.SetBool("Reload", false);
+            
+            canShoot = false;
             currentBullets--;
-            Debug.Log("Shoot");
             UpdateAmmoUI();
+            
+            Debug.Log("Shoot");
         }
     }
     public void FinishShoot()
     {
+        canShoot = true;
         if (currentBullets == 0) StartReload();
     }
 
     public void StartReload()
     {
         if (currentBullets < maxBullets)
-        {
-            animator.SetBool("Reload", true);
-        }
+            animator.SetTrigger("Reload");
     }
     public void FinishReload()
     {
         currentBullets++;
-        Debug.Log("Reload");
         UpdateAmmoUI();
-        if (currentBullets == maxBullets)
-        {
-            animator.SetBool("Reload", false);
-        }
+
+        Debug.Log("Reload, current bullets = " + currentBullets);
+
+        if (currentBullets <= maxBullets) StartReload();
     }
-    private void UpdateAmmoUI()
-    {
+    private void UpdateAmmoUI() =>
         ammoText.text = currentBullets.ToString();
-    }
 }
